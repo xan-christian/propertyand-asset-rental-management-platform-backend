@@ -10,7 +10,9 @@ Backend API for a rental business: tenants, property managers, rental contracts 
 - Project name: propertyand-asset-rental-management-platform
 
 ## Prerequisites
-
+1. Java 17 - verified using #java -version
+2. PostgreSQL - The database engine the project connects to
+3. Maven wrapper (included in the project as `mvnw` / `mvnw.cmd`)
 ## Create the database
 
 ## Configure
