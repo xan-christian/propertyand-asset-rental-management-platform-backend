@@ -133,7 +133,7 @@
       "response": []
     },
     {
-      "name": "A2 failing case_DELETE",
+      "name": "A2 property-type failing case_DELETE",
       "request": {
         "method": "DELETE",
         "header": [],
@@ -155,29 +155,7 @@
       "response": []
     },
     {
-      "name": "A2 failing case_PUT",
-      "request": {
-        "method": "DELETE",
-        "header": [],
-        "url": {
-          "raw": "http://localhost:8080/api/property-types/delete/00000000-0000-0000-0000-000000000000",
-          "protocol": "http",
-          "host": [
-            "localhost"
-          ],
-          "port": "8080",
-          "path": [
-            "api",
-            "property-types",
-            "delete",
-            "00000000-0000-0000-0000-000000000000"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "A2 failing case_GET",
+      "name": "A2 property-type failing case_GET",
       "request": {
         "method": "GET",
         "header": [],
@@ -191,6 +169,174 @@
           "path": [
             "api",
             "property-types",
+            "00000000-0000-0000-0000-000000000000"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "A2 properties save",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"propertyNumber\":1,\"name\":\"Sunrise Apartments\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/properties/save",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "properties",
+            "save"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "A2 properties all",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/properties/all",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "properties",
+            "all"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "A2 properties by id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/properties/48aa6c5b-272a-4d8f-adaa-14cc84de615c",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "properties",
+            "48aa6c5b-272a-4d8f-adaa-14cc84de615c"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "A2 properties update",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"propertyNumber\":1,\r\n    \"name\":\"Xan Apartments\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/properties/update/48aa6c5b-272a-4d8f-adaa-14cc84de615c",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "properties",
+            "update",
+            "48aa6c5b-272a-4d8f-adaa-14cc84de615c"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "A2 properties delete",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/properties/delete/48aa6c5b-272a-4d8f-adaa-14cc84de615c",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "properties",
+            "delete",
+            "48aa6c5b-272a-4d8f-adaa-14cc84de615c"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "A2 properties failing case_GET",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/properties/00000000-0000-0000-0000-000000000000",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "properties",
+            "00000000-0000-0000-0000-000000000000"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "A2 properties failing case_DELETE",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/properties/delete/00000000-0000-0000-0000-000000000000",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "properties",
+            "delete",
             "00000000-0000-0000-0000-000000000000"
           ]
         }
