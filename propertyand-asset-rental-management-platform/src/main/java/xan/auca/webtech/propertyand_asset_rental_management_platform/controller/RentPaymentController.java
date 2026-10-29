@@ -31,4 +31,13 @@ public class RentPaymentController {
     public ResponseEntity<?> getPaymentsOfTenant(@PathVariable String nationalId) {
         return new ResponseEntity<>(rentPaymentService.getPaymentsOfTenant(nationalId), HttpStatus.OK);
     }
+
+        @DeleteMapping(value = "/delete/{id}")
+    public ResponseEntity<?> deleteRentPayment(@PathVariable UUID id) {
+        String result = rentPaymentService.deleteRentPayment(id);
+        if (result.equals("Rent payment deleted successfully")) {
+            return new ResponseEntity<>(result, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(result, HttpStatus.NOT_FOUND);
+    }
 }

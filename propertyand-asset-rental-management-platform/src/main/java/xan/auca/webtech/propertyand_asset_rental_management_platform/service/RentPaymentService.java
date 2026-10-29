@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 import xan.auca.webtech.propertyand_asset_rental_management_platform.domain.ContractStatus;
 import xan.auca.webtech.propertyand_asset_rental_management_platform.domain.RentPayment;
 import xan.auca.webtech.propertyand_asset_rental_management_platform.domain.RentalContract;
-import java.util.UUID;
 import xan.auca.webtech.propertyand_asset_rental_management_platform.repository.RentPaymentRepository;
 import xan.auca.webtech.propertyand_asset_rental_management_platform.repository.RentalContractRepository;
 import java.util.*;
@@ -38,5 +37,13 @@ public class RentPaymentService {
 
         public List<RentPayment> getPaymentsOfTenant(String nationalId) {
         return rentPaymentRepository.findPaymentsOfTenant(nationalId);
+    }
+
+        public String deleteRentPayment(UUID id) {
+        if (rentPaymentRepository.findById(id).isEmpty()) {
+            return "The rent payment with that id does not exist";
+        }
+        rentPaymentRepository.deleteById(id);
+        return "Rent payment deleted successfully";
     }
 }

@@ -7,6 +7,7 @@ import xan.auca.webtech.propertyand_asset_rental_management_platform.domain.*;
 import java.time.LocalDate;
 import java.util.*;
 import xan.auca.webtech.propertyand_asset_rental_management_platform.repository.*;
+
 @Service
 public class RentalContractService {
 
@@ -49,10 +50,17 @@ public class RentalContractService {
         return "Rental contract updated successfully!";
     }
 
-    public String deleteRentalContract(UUID id) 
-    {
-        if (rentalContractRepository.findById(id).isEmpty()) {
+    @Autowired
+    private RentPaymentRepository rentPaymentRepository;
+
+    public String deleteRentalContract(UUID id) {
+        Optional<RentalContract> found = rentalContractRepository.findById(id);
+        if (found.isEmpty()) {
             return "The rental contract with that id does not exist";
+        }
+        // a contract with payments keeps its history
+        if (rentPaymentRepository.existsByRentalContract(found.get())) {
+            return "That rental contract has rent payments, delete them first";
         }
         rentalContractRepository.deleteById(id);
         return "Rental contract deleted successfully";

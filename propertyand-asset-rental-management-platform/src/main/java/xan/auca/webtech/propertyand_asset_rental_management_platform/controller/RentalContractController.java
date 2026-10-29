@@ -66,11 +66,14 @@ public class RentalContractController {
         return new ResponseEntity<>(result, HttpStatus.NOT_FOUND);
     }
 
-    @DeleteMapping(value = "/delete/{id}")
+       @DeleteMapping(value = "/delete/{id}")
     public ResponseEntity<?> deleteRentalContract(@PathVariable UUID id) {
         String result = rentalContractService.deleteRentalContract(id);
         if (result.equals("Rental contract deleted successfully")) {
             return new ResponseEntity<>(result, HttpStatus.OK);
+        }
+        if (result.equals("That rental contract has rent payments, delete them first")) {
+            return new ResponseEntity<>(result, HttpStatus.CONFLICT);
         }
         return new ResponseEntity<>(result, HttpStatus.NOT_FOUND);
     }
