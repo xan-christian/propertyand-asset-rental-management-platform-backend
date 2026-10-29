@@ -41,4 +41,7 @@ public class TenantService {
         tenantRepository.deleteById(id);
         return "Tenant deleted successfully";
     }
+        public List<Tenant> getTenantsByLastName(String lastName) {
+        return tenantRepository.findByLastNameIgnoreCaseOrderByFirstNameAsc(lastName);
+    }
 }

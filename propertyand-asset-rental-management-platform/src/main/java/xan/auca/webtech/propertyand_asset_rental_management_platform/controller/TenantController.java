@@ -36,6 +36,11 @@ public class TenantController {
         return new ResponseEntity<>("The tenant with that id does not exist", HttpStatus.NOT_FOUND);
     }
 
+    @GetMapping(value = "/by-last-name")
+    public ResponseEntity<?> getTenantsByLastName(@RequestParam String lastName) {
+        return new ResponseEntity<>(tenantService.getTenantsByLastName(lastName), HttpStatus.OK);
+    }
+
     @PutMapping(value = "/update/{id}")
     public ResponseEntity<?> updateTenant(@PathVariable UUID id, @RequestBody Tenant tenant)
     {
