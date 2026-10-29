@@ -37,6 +37,12 @@ public class PropertyManagerController {
         return new ResponseEntity<>("The property manager with that id does not exist", HttpStatus.NOT_FOUND);
     }
 
+    @GetMapping(value = "/by-property-type")
+    public ResponseEntity<?> getByPropertyType(@RequestParam String name) 
+    {
+        return new ResponseEntity<>(propertyManagerService.getPropertyManagersByPropertyType(name), HttpStatus.OK);
+    }
+
     @PutMapping(value = "/update/{id}")
     public ResponseEntity<?> updatePropertyManager(@PathVariable UUID id, @RequestBody PropertyManager propertyManager) {
         String result = propertyManagerService.updatePropertyManager(id, propertyManager);

@@ -44,5 +44,9 @@ public class PropertyManagerService {
         propertyManagerRepository.deleteById(id);
         return "Property manager deleted successfully";
     }
+
+        public List<PropertyManager> getPropertyManagersByPropertyType(String name) {
+        return propertyManagerRepository.searchByPropertyType(name);
+    }
 }
 
