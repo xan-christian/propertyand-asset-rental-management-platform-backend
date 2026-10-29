@@ -90,4 +90,9 @@ public class RentalContractController {
         }
         return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
     }
+
+    @GetMapping(value = "/stats/by-status")
+    public ResponseEntity<?> getStatusReport() {
+        return new ResponseEntity<>(rentalContractService.getStatusReport(), HttpStatus.OK);
+    }
 }

@@ -99,4 +99,9 @@ public class RentalContractService {
         rentalContractRepository.save(contract);
         return "Rental contract status updated successfully";
     }
+
+    public List<Object[]> getStatusReport() 
+    {
+    return rentalContractRepository.statusReport();
+    }
 }

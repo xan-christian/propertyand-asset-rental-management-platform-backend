@@ -6,10 +6,13 @@ import xan.auca.webtech.propertyand_asset_rental_management_platform.domain.*;
 import java.time.LocalDate;
 
 public interface RentalContractRepository extends JpaRepository<RentalContract, UUID> {
-    
-List<RentalContract> findByStatusOrderByStartDateAsc(ContractStatus status);
 
-List<RentalContract> findByStartDateBetweenOrderByStartDateAsc(LocalDate start, LocalDate end);
+    List<RentalContract> findByStatusOrderByStartDateAsc(ContractStatus status);
 
-boolean existsByPropertyManagerIdAndStartDateAndStatusNot(UUID propertyManagerId, LocalDate startDate, ContractStatus status);
+    List<RentalContract> findByStartDateBetweenOrderByStartDateAsc(LocalDate start, LocalDate end);
+
+    boolean existsByPropertyManagerIdAndStartDateAndStatusNot(UUID propertyManagerId, LocalDate startDate, ContractStatus status);
+
+    @Query("SELECT c.status, COUNT(c) FROM RentalContract c GROUP BY c.status")
+    List<Object[]> statusReport();
 }
