@@ -95,4 +95,10 @@ public class RentalContractController {
     public ResponseEntity<?> getStatusReport() {
         return new ResponseEntity<>(rentalContractService.getStatusReport(), HttpStatus.OK);
     }
+
+    @PatchMapping(value = "/cancel-day")
+    public ResponseEntity<?> cancelDay(@RequestParam UUID propertyManagerId, @RequestParam String date) {
+        String result = rentalContractService.cancelDay(propertyManagerId, LocalDate.parse(date));
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
 }

@@ -1,11 +1,11 @@
 package xan.auca.webtech.propertyand_asset_rental_management_platform.service;
 
+import java.time.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.*;
-import xan.auca.webtech.propertyand_asset_rental_management_platform.domain.*;
-
-import java.time.LocalDate;
+import org.springframework.transaction.annotation.*;
 import java.util.*;
+import xan.auca.webtech.propertyand_asset_rental_management_platform.domain.*;
 import xan.auca.webtech.propertyand_asset_rental_management_platform.repository.*;
 
 @Service
@@ -103,5 +103,13 @@ public class RentalContractService {
     public List<Object[]> getStatusReport() 
     {
     return rentalContractRepository.statusReport();
+    }
+
+    @Transactional
+    public String cancelDay(UUID propertyManagerId, LocalDate day) {
+        // one UPDATE statement, no loop; the int is the real number of rows changed
+        int changed = rentalContractRepository.cancelDay(propertyManagerId, day,
+            ContractStatus.TERMINATED, ContractStatus.ACTIVATED);
+        return changed + " rental contracts cancelled";
     }
 }
