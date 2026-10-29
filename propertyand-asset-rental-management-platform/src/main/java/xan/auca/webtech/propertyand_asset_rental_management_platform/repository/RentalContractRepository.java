@@ -5,5 +5,7 @@ import java.util.*;
 import xan.auca.webtech.propertyand_asset_rental_management_platform.domain.*;
 
 public interface RentalContractRepository extends JpaRepository<RentalContract, UUID> {
+    
+List<RentalContract> findByStatusOrderByStartDateAsc(ContractStatus status);
 
 }

@@ -43,4 +43,8 @@ public class RentalContractService {
         rentalContractRepository.deleteById(id);
         return "Rental contract deleted successfully";
     }
+
+        public List<RentalContract> getRentalContractsByStatus(ContractStatus status) {
+        return rentalContractRepository.findByStatusOrderByStartDateAsc(status);}
+    
 }

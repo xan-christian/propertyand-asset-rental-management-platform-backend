@@ -4,6 +4,8 @@ import java.util.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.http.*;
+
+import xan.auca.webtech.propertyand_asset_rental_management_platform.domain.ContractStatus;
 import xan.auca.webtech.propertyand_asset_rental_management_platform.domain.RentalContract;
 import xan.auca.webtech.propertyand_asset_rental_management_platform.service.RentalContractService;
 
@@ -34,6 +36,11 @@ public class RentalContractController {
             return new ResponseEntity<>(rentalContract.get(), HttpStatus.OK);
         }
         return new ResponseEntity<>("The rental contract with that id does not exist", HttpStatus.NOT_FOUND);
+    }
+
+    @GetMapping(value = "/by-status")
+    public ResponseEntity<?> getByStatus(@RequestParam ContractStatus status) {
+        return new ResponseEntity<>(rentalContractService.getRentalContractsByStatus(status), HttpStatus.OK);
     }
 
     @PutMapping(value = "/update/{id}")
