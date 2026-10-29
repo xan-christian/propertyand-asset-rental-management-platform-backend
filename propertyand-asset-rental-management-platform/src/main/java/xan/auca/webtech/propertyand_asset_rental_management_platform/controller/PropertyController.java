@@ -31,6 +31,12 @@ public ResponseEntity<?> getProperty(@PathVariable UUID id) {
     } else {
         return new ResponseEntity<>("Sorry! The property with that ID does't exist", HttpStatus.NOT_FOUND);}
     }
+
+    @GetMapping(value = "/free")
+    public ResponseEntity<?> getFreeProperties() {
+        return new ResponseEntity<>(propertyService.getFreeProperties(), HttpStatus.OK);
+    }
+
         @PutMapping(value = "/update/{id}")
     public ResponseEntity<?> updateProperty(@PathVariable UUID id, @RequestBody Property property) {
         String result = propertyService.updateProperty(id, property);
