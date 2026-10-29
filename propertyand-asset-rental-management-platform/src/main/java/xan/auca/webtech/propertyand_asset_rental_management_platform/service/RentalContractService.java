@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.*;
 import java.util.*;
 import xan.auca.webtech.propertyand_asset_rental_management_platform.domain.*;
 import xan.auca.webtech.propertyand_asset_rental_management_platform.repository.*;
+import org.springframework.data.domain.*;
 
 @Service
 public class RentalContractService {
@@ -111,5 +112,9 @@ public class RentalContractService {
         int changed = rentalContractRepository.cancelDay(propertyManagerId, day,
             ContractStatus.TERMINATED, ContractStatus.ACTIVATED);
         return changed + " rental contracts cancelled";
+    }
+
+    public Page<RentalContract> getRentalContractsPage(Pageable pageable) {
+        return rentalContractRepository.findAll(pageable);
     }
 }

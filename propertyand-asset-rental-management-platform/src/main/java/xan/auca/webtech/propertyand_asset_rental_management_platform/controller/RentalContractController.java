@@ -9,6 +9,7 @@ import org.springframework.http.*;
 import xan.auca.webtech.propertyand_asset_rental_management_platform.domain.ContractStatus;
 import xan.auca.webtech.propertyand_asset_rental_management_platform.domain.RentalContract;
 import xan.auca.webtech.propertyand_asset_rental_management_platform.service.RentalContractService;
+import org.springframework.data.domain.*;
 
 
     
@@ -100,5 +101,19 @@ public class RentalContractController {
     public ResponseEntity<?> cancelDay(@RequestParam UUID propertyManagerId, @RequestParam String date) {
         String result = rentalContractService.cancelDay(propertyManagerId, LocalDate.parse(date));
         return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+
+        @GetMapping(value = "/page")
+    public ResponseEntity<?> getRentalContractsPage(@RequestParam(defaultValue = "0") int page,
+                                                    @RequestParam(defaultValue = "5") int size,
+                                                    @RequestParam(defaultValue = "startDate,desc") String sort) {
+        // split "startDate,desc" into the field and the direction
+        String[] parts = sort.split(",");
+        Sort.Direction direction = Sort.Direction.ASC;
+        if (parts.length > 1) {
+            direction = Sort.Direction.fromString(parts[1]);
+        }
+        Pageable pageable = PageRequest.of(page, size, Sort.by(direction, parts[0]));
+        return new ResponseEntity<>(rentalContractService.getRentalContractsPage(pageable), HttpStatus.OK);
     }
 }
