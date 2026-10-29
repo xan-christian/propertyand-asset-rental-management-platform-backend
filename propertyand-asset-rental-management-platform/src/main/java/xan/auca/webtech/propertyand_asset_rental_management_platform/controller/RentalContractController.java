@@ -22,7 +22,13 @@ public class RentalContractController {
     @PostMapping(value = "/save")
     public ResponseEntity<?> saveRentalContract(@RequestBody RentalContract rentalContract) {
         String result = rentalContractService.saveRentalContract(rentalContract);
-        return new ResponseEntity<>(result, HttpStatus.CREATED);
+        if (result.equals("Rental contract saved successfully")) {
+            return new ResponseEntity<>(result, HttpStatus.CREATED);
+        }
+        if (result.equals("Property manager already starts a contract on that date")) {
+            return new ResponseEntity<>(result, HttpStatus.CONFLICT);
+        }
+        return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
     }
 
     @GetMapping(value = "/all")

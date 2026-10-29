@@ -13,7 +13,17 @@ public class RentalContractService {
 @Autowired
     private RentalContractRepository rentalContractRepository;
 
-    public String saveRentalContract(RentalContract rentalContract) {
+       public String saveRentalContract(RentalContract rentalContract) {
+        // a new contract always starts as PROPOSED,
+        rentalContract.setStatus(ContractStatus.PROPOSED);
+        if (rentalContract.getStartDate().isBefore(LocalDate.now())) {
+            return "Rental contract date cannot be in the past";
+        }
+        boolean managerIsBusy = rentalContractRepository.existsByPropertyManagerIdAndStartDateAndStatusNot(
+                rentalContract.getPropertyManager().getId(), rentalContract.getStartDate(), ContractStatus.TERMINATED);
+        if (managerIsBusy) {
+            return "Property manager already starts a contract on that date";
+        }
         rentalContractRepository.save(rentalContract);
         return "Rental contract saved successfully";
     }

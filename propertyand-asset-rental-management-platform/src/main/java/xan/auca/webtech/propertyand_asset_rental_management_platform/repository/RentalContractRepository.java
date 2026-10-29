@@ -11,4 +11,5 @@ List<RentalContract> findByStatusOrderByStartDateAsc(ContractStatus status);
 
 List<RentalContract> findByStartDateBetweenOrderByStartDateAsc(LocalDate start, LocalDate end);
 
+boolean existsByPropertyManagerIdAndStartDateAndStatusNot(UUID propertyManagerId, LocalDate startDate, ContractStatus status);
 }
