@@ -69,7 +69,6 @@ If it does not start, check the first error line:
 4. The base URL is ‘http://localhost:8080’.
 
 ## Seed data
-
 Test data was entered through the application's own save endpoints (Postman):
 4 property types, 4 properties, 3 property managers, 5 tenants and 10 rental contracts,
 covering all four contract statuses.
