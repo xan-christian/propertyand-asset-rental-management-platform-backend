@@ -5,4 +5,6 @@ import org.springframework.data.jpa.repository.*;
 import xan.auca.webtech.propertyand_asset_rental_management_platform.domain.*;
 public interface PropertyTypeRepository extends JpaRepository<PropertyType, UUID> {
 
+    @Query("SELECT t FROM PropertyType t WHERE t.managers IS EMPTY")
+    List<PropertyType> findUnusedPropertyTypes();
 }

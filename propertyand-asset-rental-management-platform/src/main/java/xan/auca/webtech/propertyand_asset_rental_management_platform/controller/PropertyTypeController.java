@@ -33,6 +33,13 @@ public class PropertyTypeController {
             return new ResponseEntity<>("Property type with that ID is not found", HttpStatus.NOT_FOUND);
         }
     }
+    
+    @GetMapping(value = "/unused")
+    public ResponseEntity<?> getUnusedPropertyTypes() 
+    {
+        return new ResponseEntity<>(propertyTypeService.getUnusedPropertyTypes(), HttpStatus.OK);
+    }
+
     @PutMapping (value="/update/{id}")
     public ResponseEntity<?> updatePropertyType(@PathVariable UUID id, @RequestBody PropertyType propertyType){
         String result = propertyTypeService.UpdatePropertyType(id, propertyType);
