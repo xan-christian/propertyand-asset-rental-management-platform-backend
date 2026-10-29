@@ -3,9 +3,12 @@ package xan.auca.webtech.propertyand_asset_rental_management_platform.repository
 import org.springframework.data.jpa.repository.*;
 import java.util.*;
 import xan.auca.webtech.propertyand_asset_rental_management_platform.domain.*;
+import java.time.*;
 
 public interface RentalContractRepository extends JpaRepository<RentalContract, UUID> {
     
 List<RentalContract> findByStatusOrderByStartDateAsc(ContractStatus status);
+
+List<RentalContract> findByStartDateBetweenOrderByStartDateAsc(LocalDate start, LocalDate end);
 
 }

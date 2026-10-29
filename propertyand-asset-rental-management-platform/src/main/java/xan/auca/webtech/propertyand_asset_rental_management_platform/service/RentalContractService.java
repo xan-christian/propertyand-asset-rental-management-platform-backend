@@ -3,6 +3,8 @@ package xan.auca.webtech.propertyand_asset_rental_management_platform.service;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.*;
 import xan.auca.webtech.propertyand_asset_rental_management_platform.domain.*;
+
+import java.time.LocalDate;
 import java.util.*;
 import xan.auca.webtech.propertyand_asset_rental_management_platform.repository.*;
 @Service
@@ -47,4 +49,8 @@ public class RentalContractService {
         public List<RentalContract> getRentalContractsByStatus(ContractStatus status) {
         return rentalContractRepository.findByStatusOrderByStartDateAsc(status);}
     
+        public List<RentalContract> getRentalContractsBetween(LocalDate start, LocalDate end) 
+        {
+        return rentalContractRepository.findByStartDateBetweenOrderByStartDateAsc(start, end);
+        }
 }

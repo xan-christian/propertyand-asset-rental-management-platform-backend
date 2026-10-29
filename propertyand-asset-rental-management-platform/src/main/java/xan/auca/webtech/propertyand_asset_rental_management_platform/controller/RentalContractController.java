@@ -1,5 +1,6 @@
 package xan.auca.webtech.propertyand_asset_rental_management_platform.controller;
 
+import java.time.LocalDate;
 import java.util.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.*;
@@ -41,6 +42,13 @@ public class RentalContractController {
     @GetMapping(value = "/by-status")
     public ResponseEntity<?> getByStatus(@RequestParam ContractStatus status) {
         return new ResponseEntity<>(rentalContractService.getRentalContractsByStatus(status), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/between")
+    public ResponseEntity<?> getRentalContractsBetween(@RequestParam String start, @RequestParam String end) {
+        LocalDate from = LocalDate.parse(start);
+        LocalDate to = LocalDate.parse(end);
+        return new ResponseEntity<>(rentalContractService.getRentalContractsBetween(from, to), HttpStatus.OK);
     }
 
     @PutMapping(value = "/update/{id}")
