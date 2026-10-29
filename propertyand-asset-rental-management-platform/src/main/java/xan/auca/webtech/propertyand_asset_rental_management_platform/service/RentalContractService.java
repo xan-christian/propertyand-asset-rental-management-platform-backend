@@ -28,13 +28,15 @@ public class RentalContractService {
     }
 
     public String updateRentalContract(UUID id, RentalContract rentalContract) {
-        if (rentalContractRepository.findById(id).isEmpty()) {
-            return "The rental contract with that id does not exist";
+        Optional<RentalContract> found = rentalContractRepository.findById(id);
+        if (found.isEmpty()) {
+            return "The rental contract with that id does not existt";
         }
-
         rentalContract.setId(id);
+        // //the status can only change through the status endpoint
+        rentalContract.setStatus(found.get().getStatus());
         rentalContractRepository.save(rentalContract);
-        return "Rental contract updated successfully";
+        return "Rental contract updated successfully!";
     }
 
     public String deleteRentalContract(UUID id) 
@@ -53,4 +55,30 @@ public class RentalContractService {
         {
         return rentalContractRepository.findByStartDateBetweenOrderByStartDateAsc(start, end);
         }
+
+        public String updateStatus(UUID id, ContractStatus newStatus) {
+        Optional<RentalContract> found = rentalContractRepository.findById(id);
+        if (found.isEmpty()) {
+            return "The rental contract with that id does not exist";
+        }
+        RentalContract contract = found.get();
+        ContractStatus current = contract.getStatus();
+
+        ////only four moves are allowed; everything else stays false
+        boolean moveIsAllowed = false;
+        if (current == ContractStatus.PROPOSED
+                && (newStatus == ContractStatus.SIGNED || newStatus == ContractStatus.TERMINATED)) {
+            moveIsAllowed = true;
+        }
+        if (current == ContractStatus.SIGNED
+                && (newStatus == ContractStatus.ACTIVATED || newStatus == ContractStatus.TERMINATED)) {
+            moveIsAllowed = true;
+        }
+        if (!moveIsAllowed) {
+            return "Cannot change status from " + current + " to " + newStatus;
+        }
+        contract.setStatus(newStatus);
+        rentalContractRepository.save(contract);
+        return "Rental contract status updated successfully";
+    }
 }

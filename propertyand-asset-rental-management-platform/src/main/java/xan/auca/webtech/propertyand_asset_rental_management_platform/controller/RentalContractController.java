@@ -68,4 +68,17 @@ public class RentalContractController {
         }
         return new ResponseEntity<>(result, HttpStatus.NOT_FOUND);
     }
+
+    
+    @PatchMapping(value = "/{id}/status")
+    public ResponseEntity<?> updateStatus(@PathVariable UUID id, @RequestParam ContractStatus status) {
+        String result = rentalContractService.updateStatus(id, status);
+        if (result.equals("Rental contract status updated successfully")) {
+            return new ResponseEntity<>(result, HttpStatus.OK);
+        }
+        if (result.equals("The rental contract with that id does not exist")) {
+            return new ResponseEntity<>(result, HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
+    }
 }

@@ -44,4 +44,16 @@ public class TenantService {
         public List<Tenant> getTenantsByLastName(String lastName) {
         return tenantRepository.findByLastNameIgnoreCaseOrderByFirstNameAsc(lastName);
     }
+
+
+        @Autowired
+    private PropertyManagerRepository propertyManagerRepository;
+
+    public Optional<List<Tenant>> getTenantsOfPropertyManager(UUID propertyManagerId) {
+        // Check if the property manager exists
+        if (propertyManagerRepository.findById(propertyManagerId).isEmpty()) {
+            return Optional.empty();
+        }
+        return Optional.of(tenantRepository.findTenantsOfPropertyManager(propertyManagerId));
+    }
 }

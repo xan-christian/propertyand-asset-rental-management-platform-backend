@@ -11,7 +11,7 @@ public class RentalContract {
     @GeneratedValue (strategy = GenerationType.UUID)
     private UUID id;
     private LocalDate startDate;
-    //stored as the  'PROPOSED......' not as an num
+    //stored as the  PROPOSED not as an num
 
     @Enumerated(EnumType.STRING)
     private ContractStatus status;

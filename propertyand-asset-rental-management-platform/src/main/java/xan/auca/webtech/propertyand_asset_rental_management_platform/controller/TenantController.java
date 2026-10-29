@@ -41,6 +41,15 @@ public class TenantController {
         return new ResponseEntity<>(tenantService.getTenantsByLastName(lastName), HttpStatus.OK);
     }
 
+    @GetMapping(value = "/of-property-manager/{propertyManagerId}")
+    public ResponseEntity<?> getTenantsOfPropertyManager(@PathVariable UUID propertyManagerId) 
+    {
+        Optional<List<Tenant>> tenants = tenantService.getTenantsOfPropertyManager(propertyManagerId);
+        if (tenants.isPresent()) {
+            return new ResponseEntity<>(tenants.get(), HttpStatus.OK);}
+        return new ResponseEntity<>("The property manager with that id does not exist", HttpStatus.NOT_FOUND);
+    }
+
     @PutMapping(value = "/update/{id}")
     public ResponseEntity<?> updateTenant(@PathVariable UUID id, @RequestBody Tenant tenant)
     {
