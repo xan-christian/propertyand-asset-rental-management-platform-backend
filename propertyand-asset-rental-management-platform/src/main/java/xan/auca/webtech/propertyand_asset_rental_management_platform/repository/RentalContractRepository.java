@@ -21,5 +21,8 @@ public interface RentalContractRepository extends JpaRepository<RentalContract, 
     @Query("UPDATE RentalContract c SET c.status = :terminated WHERE c.propertyManager.id = :managerId AND c.startDate = :day AND c.status <> :activated")
     int cancelDay(@Param("managerId") UUID managerId, @Param("day") LocalDate day,
         @Param("terminated") ContractStatus terminated, @Param("activated") ContractStatus activated);
+//bonus part
+    long countByStartDate(LocalDate date);
 
+    long countByStatus(ContractStatus status);
 }
