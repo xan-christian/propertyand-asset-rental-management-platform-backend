@@ -75,4 +75,18 @@ public class PropertyManagerController {
         
         return new ResponseEntity<>(result, HttpStatus.CONFLICT);
     }
+    
+    @PatchMapping(value = "/{propertyManagerId}/property")
+    public ResponseEntity<?> changeProperty(@PathVariable UUID propertyManagerId, @RequestParam int propertyNumber) {
+        String result = propertyManagerService.changeProperty(propertyManagerId, propertyNumber);
+        if (result.equals("Property changed successfully")) {
+            return new ResponseEntity<>(result, HttpStatus.OK);
+        }
+        if (result.equals("That property is taken by another property manager")) {
+            return new ResponseEntity<>(result, HttpStatus.CONFLICT);
+        }
+        return new ResponseEntity<>(result, HttpStatus.NOT_FOUND);
+    }
+
+    
 }

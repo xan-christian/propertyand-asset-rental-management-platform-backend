@@ -10,4 +10,6 @@ public interface PropertyManagerRepository extends JpaRepository<PropertyManager
 
     @Query("SELECT DISTINCT m FROM PropertyManager m JOIN m.propertyTypes t WHERE LOWER(t.name) LIKE LOWER(CONCAT('%', :name, '%'))")
     List<PropertyManager> searchByPropertyType(@Param("name") String name);
+    
+    boolean existsByProperty(Property property);
 }

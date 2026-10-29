@@ -6,14 +6,16 @@ import org.springframework.stereotype.*;
 import java.util.*;
 import org.springframework.transaction.annotation.*;
 import xan.auca.webtech.propertyand_asset_rental_management_platform.repository.PropertyManagerRepository;
+import xan.auca.webtech.propertyand_asset_rental_management_platform.repository.PropertyRepository;
 import xan.auca.webtech.propertyand_asset_rental_management_platform.repository.PropertyTypeRepository;
 import xan.auca.webtech.propertyand_asset_rental_management_platform.domain.PropertyManager;
 import xan.auca.webtech.propertyand_asset_rental_management_platform.domain.PropertyType;
+import xan.auca.webtech.propertyand_asset_rental_management_platform.domain.*;
 
 
 @Service 
 public class PropertyManagerService {
-    
+
     @Autowired
     private PropertyManagerRepository propertyManagerRepository;
 
@@ -53,7 +55,7 @@ public class PropertyManagerService {
         public List<PropertyManager> getPropertyManagersByPropertyType(String name) {
         return propertyManagerRepository.searchByPropertyType(name);
     }
-        @Autowired
+    @Autowired
     private PropertyTypeRepository propertyTypeRepository;
 
     @Transactional
@@ -79,5 +81,32 @@ public class PropertyManagerService {
         propertyManagerRepository.save(manager);
         return "Property type added to the property manager";
     }
+
+    @Autowired
+    private PropertyRepository propertyRepository;
+
+    public String changeProperty(UUID propertyManagerId, int propertyNumber) {
+        Optional<PropertyManager> foundManager = propertyManagerRepository.findById(propertyManagerId);
+        if (foundManager.isEmpty()) {
+            return "The property manager with that id does not exist";
+        }
+        Optional<Property> foundProperty = propertyRepository.findByPropertyNumber(propertyNumber);
+        if (foundProperty.isEmpty()) {
+            return "The property with that propertyNumber does not exist";
+        }
+        PropertyManager manager = foundManager.get();
+        Property target = foundProperty.get();
+
+        // a manager moving onto the property they already hold is not "taken by another"
+        boolean alreadyHis = manager.getProperty() != null
+                && manager.getProperty().getId().equals(target.getId());
+        if (!alreadyHis && propertyManagerRepository.existsByProperty(target)) {
+            return "That property is taken by another property manager";
+        }
+        manager.setProperty(target);
+        propertyManagerRepository.save(manager);
+        return "Property changed successfully";
+    }
+    
 }
 
