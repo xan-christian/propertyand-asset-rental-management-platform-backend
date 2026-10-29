@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.*;
 import xan.auca.webtech.propertyand_asset_rental_management_platform.service.PropertyManagerService;
 import xan.auca.webtech.propertyand_asset_rental_management_platform.domain.PropertyManager;
 
+
 @RestController 
-@RequestMapping (value = "/api/property-managers")
+@RequestMapping(value = "/api/property-managers")
 public class PropertyManagerController {
 
     @Autowired
@@ -29,7 +30,6 @@ public class PropertyManagerController {
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<?> getPropertyManager(@PathVariable UUID id) {
-
         Optional<PropertyManager> propertyManager = propertyManagerService.getPropertyManagerById(id);
         if (propertyManager.isPresent()) {
             return new ResponseEntity<>(propertyManager.get(), HttpStatus.OK);
@@ -38,8 +38,7 @@ public class PropertyManagerController {
     }
 
     @GetMapping(value = "/by-property-type")
-    public ResponseEntity<?> getByPropertyType(@RequestParam String name) 
-    {
+    public ResponseEntity<?> getByPropertyType(@RequestParam String name) {
         return new ResponseEntity<>(propertyManagerService.getPropertyManagersByPropertyType(name), HttpStatus.OK);
     }
 
@@ -59,5 +58,21 @@ public class PropertyManagerController {
             return new ResponseEntity<>(result, HttpStatus.OK);
         }
         return new ResponseEntity<>(result, HttpStatus.NOT_FOUND);
+    }
+
+@PutMapping(value = "/{propertyManagerId}/property-types/{propertyTypeId}")
+    public ResponseEntity<?> addPropertyType(@PathVariable UUID propertyManagerId, @PathVariable UUID propertyTypeId) {
+        String result = propertyManagerService.addPropertyType(propertyManagerId, propertyTypeId);
+        
+        if (result.equals("Property type added to the property manager")) {
+            return new ResponseEntity<>(result, HttpStatus.OK);
+        }
+        
+        if (result.equals("The property manager with that id does not exist") || result.equals("That property type does not exist"))
+            {
+            return new ResponseEntity<>(result, HttpStatus.NOT_FOUND);
+            }
+        
+        return new ResponseEntity<>(result, HttpStatus.CONFLICT);
     }
 }
