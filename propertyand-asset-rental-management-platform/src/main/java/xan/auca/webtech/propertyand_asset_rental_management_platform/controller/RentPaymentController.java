@@ -26,4 +26,9 @@ public class RentPaymentController {
         }
         return new ResponseEntity<>(result, HttpStatus.BAD_REQUEST);
     }
+
+        @GetMapping(value = "/tenant/{nationalId}")
+    public ResponseEntity<?> getPaymentsOfTenant(@PathVariable String nationalId) {
+        return new ResponseEntity<>(rentPaymentService.getPaymentsOfTenant(nationalId), HttpStatus.OK);
+    }
 }

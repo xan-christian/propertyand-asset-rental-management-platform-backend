@@ -9,7 +9,7 @@ import xan.auca.webtech.propertyand_asset_rental_management_platform.domain.Rent
 import java.util.UUID;
 import xan.auca.webtech.propertyand_asset_rental_management_platform.repository.RentPaymentRepository;
 import xan.auca.webtech.propertyand_asset_rental_management_platform.repository.RentalContractRepository;
-import java.util.Optional;
+import java.util.*;
 
 
 @Service
@@ -34,5 +34,9 @@ public class RentPaymentService {
         rentPayment.setRentalContract(found.get());
         rentPaymentRepository.save(rentPayment);
         return "Rent payment saved successfully";
+    }
+
+        public List<RentPayment> getPaymentsOfTenant(String nationalId) {
+        return rentPaymentRepository.findPaymentsOfTenant(nationalId);
     }
 }
