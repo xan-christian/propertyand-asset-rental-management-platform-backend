@@ -1,0 +1,2211 @@
+{
+  "info": {
+    "_postman_id": "d5fe0e05-d2ab-4339-8cfb-55d428a8da15",
+    "name": "propertyand-asset-rental-management-platform-midterm",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "58476525",
+    "_collection_link": "https://go.postman.co/collection/58476525-d5fe0e05-d2ab-4339-8cfb-55d428a8da15?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "A2",
+      "item": [
+        {
+          "name": "A2 save a property type",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"Commercial\"}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/property-types/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "property-types",
+                "save"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 rental-contracts save",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"startDate\":\"2026-10-05\",\"status\":\"ACTIVATED\",\"monthlyRent\":1200000,\"months\":12,\r\n    \"tenant\":{\"id\":\"79e1bbfe-bc10-4e55-901e-a7b4b197746e\"},\"propertyManager\":{\"id\":\"920e37eb-f769-422c-b8d0-444d445bf890\"}\r\n    }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/rental-contracts/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "rental-contracts",
+                "save"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 property-types all",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/property-types/all",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "property-types",
+                "all"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 property-types by id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/property-types/928e7a59-de9d-49a8-b13e-4cfa5e318e5a",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "property-types",
+                "928e7a59-de9d-49a8-b13e-4cfa5e318e5a"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 property-types update",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"name\":\"Residential Home\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/property-types/update/928e7a59-de9d-49a8-b13e-4cfa5e318e5a",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "property-types",
+                "update",
+                "928e7a59-de9d-49a8-b13e-4cfa5e318e5a"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 property-types delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/property-types/delete/928e7a59-de9d-49a8-b13e-4cfa5e318e5a",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "property-types",
+                "delete",
+                "928e7a59-de9d-49a8-b13e-4cfa5e318e5a"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 property-type failing case_DELETE",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/property-types/delete/00000000-0000-0000-0000-000000000000",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "property-types",
+                "delete",
+                "00000000-0000-0000-0000-000000000000"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 property-type failing case_GET",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/property-types/00000000-0000-0000-0000-000000000000",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "property-types",
+                "00000000-0000-0000-0000-000000000000"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 properties save",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"propertyNumber\":4,\"name\":\"ICE CENTER\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/properties/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "properties",
+                "save"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 properties all",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/properties/all",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "properties",
+                "all"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 properties by id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/properties/48aa6c5b-272a-4d8f-adaa-14cc84de615c",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "properties",
+                "48aa6c5b-272a-4d8f-adaa-14cc84de615c"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 properties update",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"propertyNumber\":1,\r\n    \"name\":\"Xan Apartments\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/properties/update/48aa6c5b-272a-4d8f-adaa-14cc84de615c",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "properties",
+                "update",
+                "48aa6c5b-272a-4d8f-adaa-14cc84de615c"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 properties delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/properties/delete/48aa6c5b-272a-4d8f-adaa-14cc84de615c",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "properties",
+                "delete",
+                "48aa6c5b-272a-4d8f-adaa-14cc84de615c"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 properties failing case_GET",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/properties/00000000-0000-0000-0000-000000000000",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "properties",
+                "00000000-0000-0000-0000-000000000000"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 properties failing case_DELETE",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/properties/delete/00000000-0000-0000-0000-000000000000",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "properties",
+                "delete",
+                "00000000-0000-0000-0000-000000000000"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 property-managers save",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"firstName\":\"Arda\",\"lastName\":\"Guler\",\"phone\":\"0791000000\",\"property\":{\"id\":\"f4da4a48-395f-49b8-a51a-75a04d0032af\"},\"propertyTypes\":[{\"id\":\"b4557835-c70f-4184-91c9-3f9b2750b203\"}]}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/property-managers/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "property-managers",
+                "save"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 property-types all (no-loop check)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/property-types/all",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "property-types",
+                "all"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 property-managers all",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/property-managers/all",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "property-managers",
+                "all"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 property-managers by id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/property-managers/920e37eb-f769-422c-b8d0-444d445bf890",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "property-managers",
+                "920e37eb-f769-422c-b8d0-444d445bf890"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 property-managers update",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstName\":\"Arda\",\"lastName\":\"Guler\",\"phone\":\"0791000000\",\"property\":{\r\n        \"id\":\"a4ddb102-bb5f-437d-a185-3c50f3dcd4c4\"\r\n        },\"propertyTypes\":[{\"id\":\"b4557835-c70f-4184-91c9-3f9b2750b203\"}]\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/property-managers/update/920e37eb-f769-422c-b8d0-444d445bf890",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "property-managers",
+                "update",
+                "920e37eb-f769-422c-b8d0-444d445bf890"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 property-managers delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/property-managers/delete/2d1bc265-b1dc-4df4-8d23-53ffe2d7455d",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "property-managers",
+                "delete",
+                "2d1bc265-b1dc-4df4-8d23-53ffe2d7455d"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 property-managers failing case",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/property-managers/00000000-0000-0000-0000-000000000000",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "property-managers",
+                "00000000-0000-0000-0000-000000000000"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 tenants save",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstName\":\"Kylian\",\"lastName\":\"Mbappe\",\r\n    \"nationalId\":\"1234567890654321\",\r\n    \"phone\":\"0788101010\",\r\n    \"email\":\"kmbappe10@example.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/tenants/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "tenants",
+                "save"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 tenants all",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/tenants/all",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "tenants",
+                "all"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 tenants by id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/tenants/11980ebc-c02e-46a2-945f-cf4a9919f3ce",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "tenants",
+                "11980ebc-c02e-46a2-945f-cf4a9919f3ce"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 tenants update",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstName\":\"Kylian\",\"lastName\":\"Mbappe\",\r\n    \"nationalId\":\"1234567890654321\",\r\n    \"phone\":\"0788101019\",\r\n    \"email\":\"klmbappe10@example.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/tenants/update/79e1bbfe-bc10-4e55-901e-a7b4b197746e",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "tenants",
+                "update",
+                "79e1bbfe-bc10-4e55-901e-a7b4b197746e"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 tenants delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/tenants/delete/7275fb80-efaa-4856-bb25-01942c3bc324",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "tenants",
+                "delete",
+                "7275fb80-efaa-4856-bb25-01942c3bc324"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 tenants failing case",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/tenants/00000000-0000-0000-0000-000000000000",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "tenants",
+                "00000000-0000-0000-0000-000000000000"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 tenants failing case_DELETE",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/tenants/delete/7275fb80-efaa-4856-bb25-01942c3bc324",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "tenants",
+                "delete",
+                "7275fb80-efaa-4856-bb25-01942c3bc324"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 rental-contracts all",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/rental-contracts/all",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "rental-contracts",
+                "all"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 rental-contracts by id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/rental-contracts/f6d16ddd-088f-46d7-87a3-d01aa19d02fa",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "rental-contracts",
+                "f6d16ddd-088f-46d7-87a3-d01aa19d02fa"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 rental-contracts update",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"startDate\":\"2026-10-05\",\"status\":\"ACTIVATED\",\"monthlyRent\":1600000,\"months\":12,\r\n    \"tenant\":{\"id\":\"79e1bbfe-bc10-4e55-901e-a7b4b197746e\"},\"propertyManager\":{\"id\":\"920e37eb-f769-422c-b8d0-444d445bf890\"}\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/rental-contracts/update/6e222518-b4fc-4782-a4cc-8cfcedeb248f",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "rental-contracts",
+                "update",
+                "6e222518-b4fc-4782-a4cc-8cfcedeb248f"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 rental-contracts delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/rental-contracts/delete/f6d16ddd-088f-46d7-87a3-d01aa19d02fa",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "rental-contracts",
+                "delete",
+                "f6d16ddd-088f-46d7-87a3-d01aa19d02fa"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "A2 rental-contracts failing case_GET",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/rental-contracts/00000000-0000-0000-0000-000000000000",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "rental-contracts",
+                "00000000-0000-0000-0000-000000000000"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "B1",
+      "item": [
+        {
+          "name": "B1 tenants by last name",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/tenants/by-last-name?lastName=uwase",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "tenants",
+                "by-last-name"
+              ],
+              "query": [
+                {
+                  "key": "lastName",
+                  "value": "uwase"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "B1 case-insensitive",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/tenants/by-last-name?lastName=UWASE",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "tenants",
+                "by-last-name"
+              ],
+              "query": [
+                {
+                  "key": "lastName",
+                  "value": "UWASE"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "B1 failing case",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/tenants/by-last-name?lastName=nobody",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "tenants",
+                "by-last-name"
+              ],
+              "query": [
+                {
+                  "key": "lastName",
+                  "value": "nobody"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "B2",
+      "item": [
+        {
+          "name": "B2 contracts by status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/rental-contracts/by-status?status=PROPOSED",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "rental-contracts",
+                "by-status"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "PROPOSED"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "B2 status SIGNED",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/rental-contracts/by-status?status=SIGNED",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "rental-contracts",
+                "by-status"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "SIGNED"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "B2 failing case",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/rental-contracts/by-status?status=PROPOSED",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "rental-contracts",
+                "by-status"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "PROPOSED"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "B3",
+      "item": [
+        {
+          "name": "B3 contracts between dates",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/rental-contracts/between?start=2026-10-01&end=2026-10-31",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "rental-contracts",
+                "between"
+              ],
+              "query": [
+                {
+                  "key": "start",
+                  "value": "2026-10-01"
+                },
+                {
+                  "key": "end",
+                  "value": "2026-10-31"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "B3 inclusive check",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/rental-contracts/between?start=2026-10-01&end=2026-10-31",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "rental-contracts",
+                "between"
+              ],
+              "query": [
+                {
+                  "key": "start",
+                  "value": "2026-10-01"
+                },
+                {
+                  "key": "end",
+                  "value": "2026-10-31"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "B3 failing case",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/rental-contracts/between?start=2027-01-01&end=2027-01-31",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "rental-contracts",
+                "between"
+              ],
+              "query": [
+                {
+                  "key": "start",
+                  "value": "2027-01-01"
+                },
+                {
+                  "key": "end",
+                  "value": "2027-01-31"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "C1",
+      "item": [
+        {
+          "name": "C1 managers by property type",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/property-managers/by-property-type?name=resid",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "property-managers",
+                "by-property-type"
+              ],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "resid"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "C1 case-insensitive",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/property-managers/by-property-type?name=resid",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "property-managers",
+                "by-property-type"
+              ],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "resid"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "C1 partial",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/property-managers/by-property-type?name=comm",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "property-managers",
+                "by-property-type"
+              ],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "comm"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "C1 failing case",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/property-managers/by-property-type?name=zzz",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "property-managers",
+                "by-property-type"
+              ],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "zzz"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "C2",
+      "item": [
+        {
+          "name": "C2 free properties",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/properties/free",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "properties",
+                "free"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "C3",
+      "item": [
+        {
+          "name": "C3 unused property types",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/property-types/unused",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "property-types",
+                "unused"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "C4",
+      "item": [
+        {
+          "name": "C4 tenants of a property manager",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/tenants/of-property-manager/3273f5be-5184-4272-a9ff-7dcb9bb60e84",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "tenants",
+                "of-property-manager",
+                "3273f5be-5184-4272-a9ff-7dcb9bb60e84"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "C4 failing case",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/tenants/of-property-manager/00000000-0000-0000-0000-000000000000",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "tenants",
+                "of-property-manager",
+                "00000000-0000-0000-0000-000000000000"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "D2",
+      "item": [
+        {
+          "name": "D2 status flow",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/rental-contracts/8dd7116f-659c-450a-84b7-60921f27c638/status?status=SIGNED",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "rental-contracts",
+                "8dd7116f-659c-450a-84b7-60921f27c638",
+                "status"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "SIGNED"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "D2 PUT keeps status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "D2 failing case",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/rental-contracts/8dd7116f-659c-450a-84b7-60921f27c638/status?status=SIGNED",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "rental-contracts",
+                "8dd7116f-659c-450a-84b7-60921f27c638",
+                "status"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "SIGNED"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "D3",
+      "item": [
+        {
+          "name": "D3 add property type",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/property-managers/3af544ed-a673-4fdb-879b-0c3135901982/property-types/3692983e-6a11-4a45-8e58-f72117252cac",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "property-managers",
+                "3af544ed-a673-4fdb-879b-0c3135901982",
+                "property-types",
+                "3692983e-6a11-4a45-8e58-f72117252cac"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "D3 failing case_duplicate",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/property-managers/3af544ed-a673-4fdb-879b-0c3135901982/property-types/3692983e-6a11-4a45-8e58-f72117252cac",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "property-managers",
+                "3af544ed-a673-4fdb-879b-0c3135901982",
+                "property-types",
+                "3692983e-6a11-4a45-8e58-f72117252cac"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "D3 failing case_manager",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/property-managers/00000000-0000-0000-0000-000000000000/property-types/3692983e-6a11-4a45-8e58-f72117252cac",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "property-managers",
+                "00000000-0000-0000-0000-000000000000",
+                "property-types",
+                "3692983e-6a11-4a45-8e58-f72117252cac"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "D3 failing case_type",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/property-managers/3af544ed-a673-4fdb-879b-0c3135901982/property-types/00000000-0000-0000-0000-000000000000",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "property-managers",
+                "3af544ed-a673-4fdb-879b-0c3135901982",
+                "property-types",
+                "00000000-0000-0000-0000-000000000000"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "D4",
+      "item": [
+        {
+          "name": "D4 move manager",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/property-managers/5c412b8f-d612-403c-bc16-05481117df7c/property?propertyNumber=4",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "property-managers",
+                "5c412b8f-d612-403c-bc16-05481117df7c",
+                "property"
+              ],
+              "query": [
+                {
+                  "key": "propertyNumber",
+                  "value": "4"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "D4 failing case_taken",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/property-managers/dc144819-4aaa-4ceb-aaf2-13d2f9bf29ee/property?propertyNumber=1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "property-managers",
+                "dc144819-4aaa-4ceb-aaf2-13d2f9bf29ee",
+                "property"
+              ],
+              "query": [
+                {
+                  "key": "propertyNumber",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "D4 failing case_number",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/property-managers/dc144819-4aaa-4ceb-aaf2-13d2f9bf29ee/property?propertyNumber=99",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "property-managers",
+                "dc144819-4aaa-4ceb-aaf2-13d2f9bf29ee",
+                "property"
+              ],
+              "query": [
+                {
+                  "key": "propertyNumber",
+                  "value": "99"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "D4 move back",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/property-managers/5c412b8f-d612-403c-bc16-05481117df7c/property?propertyNumber=3",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "property-managers",
+                "5c412b8f-d612-403c-bc16-05481117df7c",
+                "property"
+              ],
+              "query": [
+                {
+                  "key": "propertyNumber",
+                  "value": "3"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "D1",
+      "item": [
+        {
+          "name": "D1 safe saving",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\"startDate\":\"2026-12-15\",\"status\":\"ACTIVATED\",\"monthlyRent\":10000,\"months\":3,\r\n\"tenant\":{\"id\":\"f61a6af1-6c58-475f-af59-50460a4bb1a4\"},\"propertyManager\":{\"id\":\"3273f5be-5184-4272-a9ff-7dcb9bb60e84\"}\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/rental-contracts/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "rental-contracts",
+                "save"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "D1 failing case_past",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\"startDate\":\"2026-01-01\",\"status\":\"ACTIVATED\",\"monthlyRent\":10000,\"months\":3,\r\n\"tenant\":{\"id\":\"f61a6af1-6c58-475f-af59-50460a4bb1a4\"},\"propertyManager\":{\"id\":\"3273f5be-5184-4272-a9ff-7dcb9bb60e84\"}\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/rental-contracts/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "rental-contracts",
+                "save"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "D1 failing case_conflict",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\"startDate\":\"2026-12-15\",\"status\":\"ACTIVATED\",\"monthlyRent\":10000,\"months\":3,\r\n\"tenant\":{\"id\":\"f61a6af1-6c58-475f-af59-50460a4bb1a4\"},\"propertyManager\":{\"id\":\"3273f5be-5184-4272-a9ff-7dcb9bb60e84\"}\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/rental-contracts/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "rental-contracts",
+                "save"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "D1 after terminate",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/rental-contracts/5e68e70e-d837-4f25-819e-701f37fd1d4a/status?status=TERMINATED",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "rental-contracts",
+                "5e68e70e-d837-4f25-819e-701f37fd1d4a",
+                "status"
+              ],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "TERMINATED"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "E1",
+      "item": [
+        {
+          "name": "E1 write rent payment",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"paymentMethod\":\"Mobile Money\",\"reference\":\"Rent for November\",\"amount\":150000\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/rent-payments/save?rentalContractId=3d3d9011-47b9-42b3-84e8-aadfc1771002",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "rent-payments",
+                "save"
+              ],
+              "query": [
+                {
+                  "key": "rentalContractId",
+                  "value": "3d3d9011-47b9-42b3-84e8-aadfc1771002"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "E1 failing case_not_activated",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"paymentMethod\":\"Mobile Money\",\"reference\":\"Rent for November\",\"amount\":150000}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/rent-payments/save?rentalContractId=ac91cccb-8e05-49cc-afd4-2c3ebe841fbb",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "rent-payments",
+                "save"
+              ],
+              "query": [
+                {
+                  "key": "rentalContractId",
+                  "value": "ac91cccb-8e05-49cc-afd4-2c3ebe841fbb"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "E1 failing case_unknown",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"paymentMethod\":\"Mobile Money\",\"reference\":\"Rent for November\",\"amount\":150000}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/rent-payments/save?rentalContractId=00000000-0000-0000-0000-000000000000",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "rent-payments",
+                "save"
+              ],
+              "query": [
+                {
+                  "key": "rentalContractId",
+                  "value": "00000000-0000-0000-0000-000000000000"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "E2",
+      "item": [
+        {
+          "name": "E2 payment history",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/rent-payments/tenant/1199880012345678",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "rent-payments",
+                "tenant",
+                "1199880012345678"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "E2 failing case_empty",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/rent-payments/tenant/1199680055556666",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "rent-payments",
+                "tenant",
+                "1199680055556666"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "E3",
+      "item": [
+        {
+          "name": "E3 delete payment",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/rent-payments/delete/19e74e60-ed1a-4be5-acad-8b711ee25e2a",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "rent-payments",
+                "delete",
+                "19e74e60-ed1a-4be5-acad-8b711ee25e2a"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "E3 failing case",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/rental-contracts/delete/87d26ef0-2030-4294-b072-1980956f9f9c",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "rental-contracts",
+                "delete",
+                "87d26ef0-2030-4294-b072-1980956f9f9c"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "E3 delete payment again",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/rent-payments/delete/19e74e60-ed1a-4be5-acad-8b711ee25e2a",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "rent-payments",
+                "delete",
+                "19e74e60-ed1a-4be5-acad-8b711ee25e2a"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "E3 delete contract",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"propertyNumber\":4,\"name\":\"ICE CENTER\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/rental-contracts/delete/87d26ef0-2030-4294-b072-1980956f9f9c",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "rental-contracts",
+                "delete",
+                "87d26ef0-2030-4294-b072-1980956f9f9c"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "F1",
+      "item": [
+        {
+          "name": "F1 contracts per status",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/rental-contracts/stats/by-status",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "rental-contracts",
+                "stats",
+                "by-status"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "F2",
+      "item": [
+        {
+          "name": "F2 cancel day",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/rental-contracts/cancel-day?propertyManagerId=3273f5be-5184-4272-a9ff-7dcb9bb60e84&date=2026-10-20",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "rental-contracts",
+                "cancel-day"
+              ],
+              "query": [
+                {
+                  "key": "propertyManagerId",
+                  "value": "3273f5be-5184-4272-a9ff-7dcb9bb60e84"
+                },
+                {
+                  "key": "date",
+                  "value": "2026-10-20"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "F2 failing case_none",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/rental-contracts/cancel-day?propertyManagerId=5c412b8f-d612-403c-bc16-05481117df7c&date=2026-10-20",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "rental-contracts",
+                "cancel-day"
+              ],
+              "query": [
+                {
+                  "key": "propertyManagerId",
+                  "value": "5c412b8f-d612-403c-bc16-05481117df7c"
+                },
+                {
+                  "key": "date",
+                  "value": "2026-10-20"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "BONUS",
+      "item": [
+        {
+          "name": "Bonus dashboard summary",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"propertyNumber\":4,\"name\":\"ICE CENTER\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/dashboard/summary",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "dashboard",
+                "summary"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Bonus paged contracts",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/rental-contracts/page?page=0&size=5&sort=startDate,desc",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "rental-contracts",
+                "page"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "key": "size",
+                  "value": "5"
+                },
+                {
+                  "key": "sort",
+                  "value": "startDate,desc"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Bonus paged contracts page 2",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/rental-contracts/page?page=1&size=5&sort=startDate,desc",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "rental-contracts",
+                "page"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "size",
+                  "value": "5"
+                },
+                {
+                  "key": "sort",
+                  "value": "startDate,desc"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Seed data",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    }
+  ]
+}
