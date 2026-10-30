@@ -29,14 +29,27 @@ Backend API for a rental business: tenants, property managers, rental contracts 
 The database login is kept in a local file that is not pushed to GitHub.
 
 1. Open the project folder ‘propertyand-asset-rental-management-platform’ (the one that contains ‘pom.xml’).
-2. Create a file named ‘local.properties’ in that folder.
+2. Create a file named ‘local.properties’ in that folder (next to `pom.xml`) with your own PostgreSQL login, one property per line:
 3. Add your own PostgreSQL username and password:
 
-	properties
-spring.datasource.username=your_username
-spring.datasource.password=your_password
 
-4. If your PostgreSQL does not run on ‘localhost:5432’, or your database is not called ‘rentaldb’, update ‘spring.datasource.url’ in ‘src/main/resources/application.properties’.
+		spring.datasource.username=your_username
+		spring.datasource.password=your_password
+->Application.properties loads this file, and it is not pushed to GitHub
+
+OR:
+	Copy local.properties.example to a new file named local.properties in the same folder, then edit it and replace the placeholders with your own PostgreSQL username and password:
+	copy local.properties.example local.properties
+
+	(cp local.properties.example local.properties on macOS or Linux.) The file contains one property per line:
+
+	spring.datasource.username=your_username
+	spring.datasource.password=your_password
+
+application.properties loads local.properties, and it is not pushed to GitHub.
+
+Step 4 (“If your PostgreSQL does not run on localhost:5432...”) stays as it is.
+5. If your PostgreSQL does not run on ‘localhost:5432’, or your database is not called ‘rentaldb’, update ‘spring.datasource.url’ in ‘src/main/resources/application.properties’.
 
 ## Run the API
 
@@ -68,9 +81,33 @@ If it does not start, check the first error line:
 3. Each request is named after its requirement ID (A2, B1, C4, D2 and so on). Run one, then try its failing case (404, 400 or 409).
 4. The base URL is ‘http://localhost:8080’.
 
+## Endpoints
+
+ID	Method and path
+A2	POST /api/{path}/save, GET /api/{path}/all, GET /api/{path}/{id}, PUT /api/{path}/update/{id}, DELETE /api/{path}/delete/{id} for property-types, properties, property-managers, tenants, rental-contracts
+B1	GET /api/tenants/by-last-name?lastName=
+B2	GET /api/rental-contracts/by-status?status=
+B3	GET /api/rental-contracts/between?start=&end=
+C1	GET /api/property-managers/by-property-type?name=
+C2	GET /api/properties/free
+C3	GET /api/property-types/unused
+C4	GET /api/tenants/of-property-manager/{propertyManagerId}
+D1	POST /api/rental-contracts/save
+D2	PATCH /api/rental-contracts/{id}/status?status=
+D3	PUT /api/property-managers/{propertyManagerId}/property-types/{propertyTypeId}
+D4	PATCH /api/property-managers/{propertyManagerId}/property?propertyNumber=
+E1	POST /api/rent-payments/save?rentalContractId=
+E2	GET /api/rent-payments/tenant/{nationalId}
+E3	DELETE /api/rent-payments/delete/{id}, DELETE /api/rental-contracts/delete/{id}
+F1	GET /api/rental-contracts/stats/by-status
+F2	PATCH /api/rental-contracts/cancel-day?propertyManagerId=&date=
+Bonus	GET /api/dashboard/summary, GET /api/rental-contracts/page?page=0&size=5&sort=startDate,desc
+
 ## Seed data
+Test data was entered through the application’s own save endpoints (Postman): 4 property types, 4 properties, 3 property managers, 5 tenants and 10 rental contracts, covering all four contract statuses. D1, E3 and F2 change data, so restore the seed data before testing again. E2 needs at least one payment posted through E1 first.
 
-Test data was entered through the application's own save endpoints (Postman):
-4 property types, 4 properties, 3 property managers, 5 tenants and 10 rental contracts,
-covering all four contract statuses.
+## Known limits
 
+A rental contract body without startDate or propertyManager returns a 500, because the paper gives no message for it and forbids try/catch.
+Saving a tenant with a duplicate nationalId returns a 500 from the database (unique constraint).
+F2 also counts contracts that were already TERMINATED, because the paper excludes only ACTIVATED.
